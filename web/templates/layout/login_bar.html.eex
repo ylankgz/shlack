@@ -1,0 +1,11 @@
+<%= if @current_user do %>
+    <li><%= @current_user.name %></li>
+    <li><%= link "Logout", to: auth_path(@conn, :logout), method: :delete %>
+          </li>  
+<% else %>
+    <%= if @conn.request_path != auth_path(@conn, :login, "identity") do %>
+      <li>
+        <%= link "Login", to: auth_path(@conn, :login, "identity") %>
+      </li>
+    <% end %>
+<% end %>

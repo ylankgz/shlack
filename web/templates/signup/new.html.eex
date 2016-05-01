@@ -1,0 +1,15 @@
+<h3>
+  Register
+</h3>
+          
+<%= form_tag auth_path(@conn, :callback, "identity"), [method: "POST", novalidate: true] do %>
+  <input type='email' placeholder="Email" name='email'>
+
+  <input type='text' placeholder="Name" name='name'>
+              
+  <input type='password' placeholder="Password" name='password'>
+
+  <input type='password' placeholder="Confirm Password" name='password_confirmation'>
+
+  <button>Sign up</button>
+<% end %>

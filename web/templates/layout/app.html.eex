@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= if Guardian.Plug.current_token(@conn) do %>
+      <meta name="guardian_token" content="<%= Guardian.Plug.current_token(@conn) %>">
+    <% end %>
+
+    <title>Shlack</title>
+    <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+  <body>
+    <nav>
+        <ul style="list-style: none;">
+          <li >Shlack</li>
+          <%= render "login_bar.html", current_user: @current_user, conn: @conn %>
+        </ul>
+    </nav>
+    <main>
+      <%= show_flash(@conn) %>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

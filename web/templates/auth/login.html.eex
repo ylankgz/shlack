@@ -1,0 +1,27 @@
+<h3>
+  <%= if @current_user do %>
+    Connect your account to
+  <% else %>
+    Login with
+  <% end %>
+</h3>
+            
+<%= if not Enum.member?(@current_auths, "github") do %>
+  <a href="<%= auth_path(@conn, :login, "github") %>"><i class="socicon socicon-github"></i></a>
+<% end %>
+
+<%= if not Enum.member?(@current_auths, "identity") do %>
+  <span>or</span>
+                
+  <%= form_tag auth_path(@conn, :callback, "identity"), method: "post", class: "login", novalidate: true do %>
+    <input type="email" name="email" placeholder="Email" value='<%= @conn.params["email"] %>'>
+                
+    <input type='password' name="password" placeholder='Password'>
+
+    <button>Login</button>           
+  <% end %>
+<% end %>
+
+<%= if !@current_user do %>
+  <p><%= link "Sign up with your email", to: signup_path(@conn, :new) %></p>
+<% end %>
