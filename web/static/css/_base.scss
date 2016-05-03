@@ -1,0 +1,24 @@
+html, :root {
+    font: 100%/1.5 "BlinkMacSystemFont", -webkit-system, Helvetica, Arial, sans-serif;
+    color: #3D464D;
+}
+
+body {
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    position: relative;
+}

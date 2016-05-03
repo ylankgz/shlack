@@ -1,27 +1,42 @@
-<h3>
-  <%= if @current_user do %>
-    Connect your account to
-  <% else %>
-    Login with
-  <% end %>
-</h3>
+<div class="o-grid">
+  <div class="o-grid__col o-grid__col--4-of-12"></div>
+    <div class="o-grid__col o-grid__col--4-of-12">
+      <div class="c-card c-card--floating is-selected form-card">
+        <h3>
+          <%= if @current_user do %>
+            Connect your account to
+          <% else %>
+            Login with
+          <% end %>
+        </h3>
+        <hr></hr>
             
-<%= if not Enum.member?(@current_auths, "github") do %>
-  <a href="<%= auth_path(@conn, :login, "github") %>"><i class="socicon socicon-github"></i></a>
-<% end %>
+        <%= if not Enum.member?(@current_auths, "github") do %>
+          <a href="<%= auth_path(@conn, :login, "github") %>" class="c-btn c-btn--full github"><i class="typcn typcn-social-github"></i> Github</a>
+        <% end %>
 
-<%= if not Enum.member?(@current_auths, "identity") do %>
-  <span>or</span>
-                
-  <%= form_tag auth_path(@conn, :callback, "identity"), method: "post", class: "login", novalidate: true do %>
-    <input type="email" name="email" placeholder="Email" value='<%= @conn.params["email"] %>'>
-                
-    <input type='password' name="password" placeholder='Password'>
+        <%= if not Enum.member?(@current_auths, "identity") do %>
+          <div class="u-font-center u-mar-top-m">or</div>
+                        
+          <%= form_tag auth_path(@conn, :callback, "identity"), method: "post", class: "login", novalidate: true do %>
+            <label class="c-label">
+              Email address
+              <input type="email" class="c-input" name="email" value='<%= @conn.params["email"] %>' pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+            </label>
 
-    <button>Login</button>           
-  <% end %>
-<% end %>
+            <label class="c-label">
+              Password             
+              <input type='password' class="c-input" name="password">
+            </label>
 
-<%= if !@current_user do %>
-  <p><%= link "Sign up with your email", to: signup_path(@conn, :new) %></p>
-<% end %>
+            <button class="c-btn c-btn--primary">Login</button>           
+          <% end %>
+        <% end %>
+
+        <%= if !@current_user do %>
+          <p class="u-font-center u-mar-top-m"><%= link "Sign up with your email", to: signup_path(@conn, :new) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

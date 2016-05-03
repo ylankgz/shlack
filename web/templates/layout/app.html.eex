@@ -11,15 +11,17 @@
     <% end %>
 
     <title>Shlack</title>
-    <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
   <body>
-    <nav>
-        <ul style="list-style: none;">
-          <li >Shlack</li>
+    <nav class="shlack-nav">
+      <div class="ul-wrap">
+        <ul class="nav-ul">
+          <li>Shlack</li>
           <%= render "login_bar.html", current_user: @current_user, conn: @conn %>
         </ul>
+      </div>
     </nav>
     <main>
       <%= show_flash(@conn) %>

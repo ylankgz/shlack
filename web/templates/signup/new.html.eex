@@ -1,15 +1,36 @@
-<h3>
-  Register
-</h3>
-          
-<%= form_tag auth_path(@conn, :callback, "identity"), [method: "POST", novalidate: true] do %>
-  <input type='email' placeholder="Email" name='email'>
+<div class="o-grid">
+  <div class="o-grid__col o-grid__col--4-of-12"></div>
+    <div class="o-grid__col o-grid__col--4-of-12">
+      <div class="c-card c-card--floating is-selected form-card">
+        <h3>
+          Register
+        </h3>
+        <hr></hr>
+                        
+        <%= form_tag auth_path(@conn, :callback, "identity"), [method: "POST", novalidate: true] do %>
+            <label class="c-label">
+              Email address
+              <input type="email" class="c-input" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+            </label>
 
-  <input type='text' placeholder="Name" name='name'>
-              
-  <input type='password' placeholder="Password" name='password'>
+            <label class="c-label">
+              Name
+              <input type="text" class="c-input" name="name" >
+            </label>
 
-  <input type='password' placeholder="Confirm Password" name='password_confirmation'>
+            <label class="c-label">
+              Password             
+              <input type='password' class="c-input" name="password">
+            </label>
 
-  <button>Sign up</button>
-<% end %>
+            <label class="c-label">
+              Confirm Password             
+              <input type='password' class="c-input" name="password_confirmation">
+            </label>
+
+            <button class="c-btn c-btn--primary">Sign up</button>           
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
