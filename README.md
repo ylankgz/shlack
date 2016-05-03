@@ -1,6 +1,10 @@
 # Shlack
 Little group chat app:
 
+###### Walkthrough:
+*[Part1](https://youtu.be/X6Z-sDSJ3sE)
+*[Part2](https://youtu.be/MFRfM-Btxo0)
+
 ###### Prerequisites:
 * Elixir: v1.0 or 1.2
 * Phoenix: v1.1.4
