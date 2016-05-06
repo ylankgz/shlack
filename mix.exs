@@ -18,7 +18,7 @@ defmodule Shlack.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Shlack, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :amnesia,
                     :phoenix_ecto, :postgrex, :oauth2, :ueberauth_github, :comeonin]]
   end
 
@@ -42,6 +42,7 @@ defmodule Shlack.Mixfile do
      {:ueberauth, "~> 0.2.0"},
      {:ueberauth_identity, "~> 0.2.3"},
      {:ueberauth_github, "~> 0.2.0"},
+     {:amnesia, github: "meh/amnesia", tag: :master},
      {:cowboy, "~> 1.0"}]
   end
 

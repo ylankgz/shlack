@@ -5,6 +5,7 @@ Little group chat app:
 
  * [Part1](https://youtu.be/X6Z-sDSJ3sE)
  * [Part2](https://youtu.be/MFRfM-Btxo0)
+ * [Part3](https://youtu.be/A-faVRurEzI)
 
 ###### Prerequisites:
 * Elixir: v1.0 or 1.2
@@ -33,6 +34,7 @@ Little group chat app:
   * In terminal run: `mix deps.get`
   * Create and migrate your DB: `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `npm install`
+  * Create mneisia databse: `mix amnesia.create -db Database --disk`
   * Start Phoenix endpoint with `iex -S mix phoenix.server`
 
 Now you can visit [`lvh.me:4000`](http://lvh.me:4000) from your browser.

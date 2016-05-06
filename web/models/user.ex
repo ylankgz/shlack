@@ -8,6 +8,7 @@ defmodule Shlack.User do
     field :email, :string
 
     has_many :authorizations, Shlack.Authorization
+    has_many :talks, Shlack.Talk
 
     timestamps
   end

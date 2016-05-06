@@ -2,7 +2,8 @@ defmodule Shlack.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", Shlack.RoomChannel
+  channel "rooms:*", Shlack.RoomChannel
+  channel "talks:*", Shlack.TalkChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,8 +20,17 @@ defmodule Shlack.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
+  
+import Guardian.Phoenix.Socket
+
+  def connect(%{"guardian_token" => jwt} = params, socket) do
+    case sign_in(socket, jwt) do
+      {:ok, authed_socket, guardian_params} ->
+        {:ok, authed_socket}
+      _ ->
+        #unauthenticated socket
+        {:error, %{reason: "unauthorized"}}
+    end
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:
