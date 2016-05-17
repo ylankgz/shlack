@@ -166,3 +166,24 @@
 #input-btn {
   width:100%;
 }
+
+.users-block {
+  width: 100%;
+  height: 93%;
+  position: relative;
+
+  .users-list {
+    list-style: none;
+    position: absolute;
+    overflow:auto;
+    height: 95%;
+    width: 100%;
+    padding: 5px;
+    margin-left: 0;
+
+    li {
+      padding: 5px 0 5px 0;
+      height: auto !important;
+    }
+  }
+}

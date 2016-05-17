@@ -121,11 +121,23 @@ let App = {
         m.component(Chat, {})
       ),
       m("div", {class: "chat-column o-grid__col o-grid__col--2-of-12"},
-        m("div", {class: "chat-card c-card c-card--floating is-selected"},
-          m("h3", "Online Users")
-        )
+        m("div", {class: "chat-card c-card c-card--floating is-selected"}, [
+          m("h4", "Online Users"),
+          m.component(OnlineUsers, {})
+        ])
       ),
     ])
+  }
+}
+
+let OnlineUsers = {
+  view() {
+    return m("div", {class: "users-block"}, [
+           m("ul", {class: "users-list"},
+           Chat.vm.online_users().map((user) => {
+            return m("li", `${user}`);
+          })
+         )])
   }
 }
 
@@ -280,6 +292,7 @@ let TalkForm = {
 let Chat = {
   vm: {
     channel: false,
+    online_users: m.prop([]),
     messages: m.prop([]),
     talk_id: m.prop(0),
     moderator: m.prop(0),
@@ -314,6 +327,11 @@ let Chat = {
 
         Chat.vm.channel.on("new_msg", payload => {
           Chat.vm.messages().push(payload)
+          m.redraw()
+        })
+
+        Chat.vm.channel.on("user_list_updated", payload => {
+          Chat.vm.online_users(payload.users)
           m.redraw()
         })
 

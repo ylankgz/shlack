@@ -6,6 +6,7 @@ Little group chat app:
  * [Part1](https://youtu.be/X6Z-sDSJ3sE)
  * [Part2](https://youtu.be/MFRfM-Btxo0)
  * [Part3](https://youtu.be/A-faVRurEzI)
+ * [Part4](https://youtu.be/377-mOl4UpI)
 
 ###### Prerequisites:
 * Elixir: v1.0 or 1.2

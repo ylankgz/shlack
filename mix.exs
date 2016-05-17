@@ -19,7 +19,7 @@ defmodule Shlack.Mixfile do
   def application do
     [mod: {Shlack, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :amnesia,
-                    :phoenix_ecto, :postgrex, :oauth2, :ueberauth_github, :comeonin]]
+                    :phoenix_ecto, :postgrex, :oauth2, :ueberauth_github, :comeonin, :gproc]]
   end
 
   # Specifies which paths to compile per environment.
@@ -43,6 +43,7 @@ defmodule Shlack.Mixfile do
      {:ueberauth_identity, "~> 0.2.3"},
      {:ueberauth_github, "~> 0.2.0"},
      {:amnesia, github: "meh/amnesia", tag: :master},
+     {:gproc, "~> 0.5.0"},
      {:cowboy, "~> 1.0"}]
   end
 
